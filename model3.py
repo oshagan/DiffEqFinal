@@ -43,6 +43,8 @@ t_values, A_values, p_values, y_values = euler_method(equations, initial_conditi
 for i, t in enumerate(t_values):
     print(f"t={t:.2f}: A={A_values[i]:.4f}, p={p_values[i]:.4f}, y={y_values[i]:.4f}")
 
+plt.figure(figsize=(10, 6))
+
 # Plot the results with legend and specified labels
 plt.plot(t_values, A_values, label='A(t)')
 plt.plot(t_values, p_values, label='p(t)')
@@ -52,9 +54,11 @@ plt.ylabel('Values')
 plt.ylim(0, 10)
 plt.legend()
 plt.title('Industrial Revolution (Model 3)')
-initial_conditions_text = f"Initial Conditions:\nβ = {beta}\nθ = {theta}\ng = {g}\ny₀ = {y0}\np(0) = {initial_conditions[1]}\nA(0) = {initial_conditions[0]}\ny(0) = {initial_conditions[2]}"
-plt.text(1.05, 3, initial_conditions_text, bbox=dict(facecolor='white', alpha=0.7))
-plt.savefig('original_graph.png', bbox_inches='tight')
+initial_conditions_text = f"Parameters:\nβ = {beta}\nθ = {theta}\ng = {g}\ny₀ = {y0}\np(0) = {initial_conditions[1]}\nA(0) = {initial_conditions[0]}\ny(0) = {initial_conditions[2]}"
+plt.text(1.03, 0.5, initial_conditions_text, bbox=dict(facecolor='white', alpha=0.7), transform=plt.gca().transAxes)
+plt.tight_layout()
+
+plt.savefig('y_05.png', bbox_inches='tight')
 
 
 plt.show()
